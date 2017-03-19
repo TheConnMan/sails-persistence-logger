@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/theconnman/sails-persistence-logger#readme",
   "dependencies": {
+    "extend": "^3.0.0",
     "log4js": "^1.1.1"
   }
 }
