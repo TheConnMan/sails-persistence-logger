@@ -25,6 +25,7 @@ And that's it! You'll now have Log4js logging of the form `[2017-03-19 15:03:27.
 ### `require('sails-persistence-logger')(options: Object)`
 Initializes **Sails Persistence Logger** with the given options. All options are optional.
 - `options.logger`: Log4js compatible logger which **Sails Persistence Logger** will use
+- `options.level`: (default: info) Log4js logging level ('debug', 'info', 'warn', 'error')
 - `options.afterCreate`: Additional `afterCreate(record: Object, callback: Function)` method which is called after logging
 - `options.afterUpdate`: Additional `afterUpdate(record: Object, callback: Function)` method which is called after logging
 - `options.afterDestroy`: Additional `afterDestroy(records: Array, callback: Function)` method which is called after logging

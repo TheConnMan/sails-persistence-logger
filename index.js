@@ -4,14 +4,15 @@ var logger = log4js.getLogger('sails-persistence-logger');
 var extend = require('extend');
 
 var defaultOptions = {
-  logger: logger
+  logger: logger,
+  level: 'info'
 };
 
 module.exports = function(overrides) {
   var options = extend(true, {}, defaultOptions, overrides || {});
   return {
     afterCreate: function(record, cb) {
-      options.logger.info('Created ' + this.identity + ' ' + record[this.primaryKey]);
+      options.logger[options.level]('Created ' + this.identity + ' ' + record[this.primaryKey]);
       if (options.afterCreate) {
         options.afterCreate(record, cb);
       } else {
@@ -20,7 +21,7 @@ module.exports = function(overrides) {
     },
 
     afterUpdate: function(record, cb) {
-      options.logger.info('Updated ' + this.identity + ' ' + record[this.primaryKey]);
+      options.logger[options.level]('Updated ' + this.identity + ' ' + record[this.primaryKey]);
       if (options.afterUpdate) {
         options.afterUpdate(record, cb);
       } else {
@@ -30,7 +31,7 @@ module.exports = function(overrides) {
 
     afterDestroy: function(records, cb) {
       records.forEach(record => {
-        options.logger.info('Destroyed ' + this.identity + ' ' + record[this.primaryKey]);
+        options.logger[options.level]('Destroyed ' + this.identity + ' ' + record[this.primaryKey]);
       });
       if (options.afterDestroy) {
         options.afterDestroy(record, cb);
