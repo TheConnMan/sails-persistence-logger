@@ -1,0 +1,26 @@
+{
+  "name": "sails-persistence-logger",
+  "version": "0.1.0",
+  "description": "Automatically log all Sails model persistence events",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theconnman/sails-persistence-logger.git"
+  },
+  "keywords": [
+    "Sails",
+    "sails",
+    "persistence",
+    "log",
+    "logger"
+  ],
+  "author": "TheConnMan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theconnman/sails-persistence-logger/issues"
+  },
+  "homepage": "https://github.com/theconnman/sails-persistence-logger#readme",
+  "dependencies": {
+    "log4js": "^1.1.1"
+  }
+}
