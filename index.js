@@ -12,19 +12,31 @@ module.exports = function(overrides) {
   return {
     afterCreate: function(record, cb) {
       options.logger.info('Created ' + this.identity + ' ' + record[this.primaryKey]);
-      cb();
+      if (options.afterCreate) {
+        options.afterCreate(record, cb);
+      } else {
+        cb();
+      }
     },
 
     afterUpdate: function(record, cb) {
       options.logger.info('Updated ' + this.identity + ' ' + record[this.primaryKey]);
-      cb();
+      if (options.afterUpdate) {
+        options.afterUpdate(record, cb);
+      } else {
+        cb();
+      }
     },
 
     afterDestroy: function(records, cb) {
       records.forEach(record => {
         options.logger.info('Destroyed ' + this.identity + ' ' + record[this.primaryKey]);
       });
-      cb();
+      if (options.afterDestroy) {
+        options.afterDestroy(record, cb);
+      } else {
+        cb();
+      }
     }
   };
 };
