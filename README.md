@@ -10,7 +10,8 @@ Automatically log all Sails model persistence events
 To use **Sails Persistence Logger** out of the box add the logger to `config/models.js` default persistence hooks so it looks like the following example:
 
 ```javascript
-var sailsPersistenceLogger = require('sails-persistence-logger')();
+var SailsPersistenceLogger = require('sails-persistence-logger');
+var logger = new SailsPersistenceLogger();
 
 module.exports.models = {
   afterCreate: function(record, cb) {
