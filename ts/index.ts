@@ -1,18 +1,13 @@
 import * as extend from 'extend';
 
-import * as log4js from 'log4js';
-
-var logger = log4js.getLogger('sails-persistence-logger');
+import Options from './Options';
 
 class SailsPersistenceLogger {
 
-  private options;
+  private options: Options;
 
-  constructor(overrides) {
-    this.options = extend(true, {}, {
-      logger: logger,
-      level: 'info'
-    }, overrides || {});
+  constructor(overrides: Options) {
+    this.options = extend(true, {}, new Options(), overrides || {});
   }
 
   public afterCreate(record, clazz): Promise<null> {
