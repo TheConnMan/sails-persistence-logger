@@ -11,33 +11,27 @@ var defaultOptions = {
 module.exports = function(overrides) {
   var options = extend(true, {}, defaultOptions, overrides || {});
   return {
-    afterCreate: function(record, cb) {
-      options.logger[options.level]('Created ' + this.identity + ' ' + record[this.primaryKey]);
-      if (options.afterCreate) {
-        options.afterCreate(record, cb);
-      } else {
-        cb();
-      }
-    },
-
-    afterUpdate: function(record, cb) {
-      options.logger[options.level]('Updated ' + this.identity + ' ' + record[this.primaryKey]);
-      if (options.afterUpdate) {
-        options.afterUpdate(record, cb);
-      } else {
-        cb();
-      }
-    },
-
-    afterDestroy: function(records, cb) {
-      records.forEach(record => {
-        options.logger[options.level]('Destroyed ' + this.identity + ' ' + record[this.primaryKey]);
+    afterCreate: function(record, me) {
+      return new Promise((resolve, reject) => {
+        options.logger[options.level]('Created ' + me.identity + ' ' + record[me.primaryKey]);
+        resolve();
       });
-      if (options.afterDestroy) {
-        options.afterDestroy(record, cb);
-      } else {
-        cb();
-      }
+    },
+
+    afterUpdate: function(record, me) {
+      return new Promise((resolve, reject) => {
+        options.logger[options.level]('Updated ' + me.identity + ' ' + record[me.primaryKey]);
+        resolve();
+      });
+    },
+
+    afterDestroy: function(records, me) {
+      return new Promise((resolve, reject) => {
+        records.forEach(record => {
+          options.logger[options.level]('Destroyed ' + me.identity + ' ' + record[me.primaryKey]);
+        });
+        resolve();
+      });
     }
   };
 };
