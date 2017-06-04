@@ -1,8 +1,14 @@
 {
   "name": "sails-persistence-logger",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Automatically log all Sails model persistence events",
-  "main": "index.js",
+  "main": "js/index.js",
+  "types": "js/index.d.ts",
+  "scripts": {
+    "compile": "tsc -p tsconfig.json",
+    "test": "nyc mocha",
+    "prepublish": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theconnman/sails-persistence-logger.git"
@@ -21,7 +27,30 @@
   },
   "homepage": "https://github.com/theconnman/sails-persistence-logger#readme",
   "dependencies": {
-    "extend": "^3.0.0",
+    "extend": "^3.0.1",
     "log4js": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/extend": "^2.0.30",
+    "@types/log4js": "0.0.32",
+    "@types/mocha": "^2.2.41",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.2",
+    "ts-node": "^3.0.4",
+    "typescript": "^2.3.4"
+  },
+  "nyc": {
+    "include": [
+      "ts/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   }
 }
