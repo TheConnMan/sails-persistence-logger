@@ -13,7 +13,9 @@ class SailsPersistenceLogger {
   public afterCreate(record, clazz): Promise<null> {
     var me = this;
     return new Promise((resolve, reject) => {
-      me.options.logger[me.options.level]('Created ' + clazz.identity + ' ' + record[clazz.primaryKey]);
+      if (me.options.isActive(clazz.identity, 'CREATE')) {
+        me.options.logger[me.options.level]('Created ' + clazz.identity + ' ' + record[clazz.primaryKey]);
+      }
       resolve();
     });
   }
@@ -21,7 +23,9 @@ class SailsPersistenceLogger {
   public afterUpdate(record, clazz): Promise<null> {
     var me = this;
     return new Promise((resolve, reject) => {
-      me.options.logger[me.options.level]('Updated ' + clazz.identity + ' ' + record[clazz.primaryKey]);
+      if (me.options.isActive(clazz.identity, 'UPDATE')) {
+        me.options.logger[me.options.level]('Updated ' + clazz.identity + ' ' + record[clazz.primaryKey]);
+      }
       resolve();
     });
   }
@@ -29,9 +33,11 @@ class SailsPersistenceLogger {
   public afterDestroy(records, clazz): Promise<null> {
     var me = this;
     return new Promise((resolve, reject) => {
-      records.forEach(record => {
-        me.options.logger[me.options.level]('Destroyed ' + clazz.identity + ' ' + record[clazz.primaryKey]);
-      });
+      if (me.options.isActive(clazz.identity, 'DESTROY')) {
+        records.forEach(record => {
+          me.options.logger[me.options.level]('Destroyed ' + clazz.identity + ' ' + record[clazz.primaryKey]);
+        });
+      }
       resolve();
     });
   }
