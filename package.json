@@ -6,6 +6,7 @@
   "types": "js/index.d.ts",
   "scripts": {
     "compile": "tsc -p tsconfig.json",
+    "test": "nyc mocha",
     "prepublish": "tsc"
   },
   "repository": {
@@ -32,6 +33,24 @@
   "devDependencies": {
     "@types/extend": "^2.0.30",
     "@types/log4js": "0.0.32",
+    "@types/mocha": "^2.2.41",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.2",
+    "ts-node": "^3.0.4",
     "typescript": "^2.3.4"
+  },
+  "nyc": {
+    "include": [
+      "ts/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   }
 }
