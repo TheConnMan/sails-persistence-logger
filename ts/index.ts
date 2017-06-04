@@ -6,8 +6,8 @@ class SailsPersistenceLogger {
 
   private options: Options;
 
-  constructor(overrides: Options) {
-    this.options = extend(true, {}, new Options(), overrides || {});
+  constructor(overrides) {
+    this.options = new Options(overrides);
   }
 
   public afterCreate(record, clazz): Promise<null> {
