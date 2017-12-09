@@ -1,7 +1,7 @@
 import * as extend from 'extend';
 import * as log4js from 'log4js';
 
-class Options {
+export default class Options {
 
   public logger: log4js.Logger = log4js.getLogger('sails-persistence-logger');
   public level: string = 'info';
@@ -22,5 +22,3 @@ class Options {
     return (<Array<string>> this.exclude[clazz]).indexOf(method) === -1;
   }
 }
-
-export default Options;
