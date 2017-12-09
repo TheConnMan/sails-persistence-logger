@@ -1,6 +1,6 @@
 {
   "name": "sails-persistence-logger",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Automatically log all Sails model persistence events",
   "main": "js/index.js",
   "types": "js/index.d.ts",
