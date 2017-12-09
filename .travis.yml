@@ -1,0 +1,11 @@
+language: node_js
+node_js: '8'
+
+deploy:
+  provider: npm
+  email: bcconn2112@gmail.com
+  api_key:
+    secure: kKCLhXFMDVAik5InibKYDEt9LVp/8NrKiS2Tq49GTWlPW275kFDw33z8yg6l27DZqO2VvQmEvZ3GrE1jLW3i9XmXxk5Fo9sWO0/EAt1hqbPifNkAK5MDpBKJdTIHvDxaFcFBInGbhWzTii0+A67rsuxOWR66dRjhr8j4PrQLFz90XGVs+yore3B2qkra/K5Ia+PluLYZDPruWQ1eLW4dnRQVvwup98DprB2/2l4r2pQaRXVNNb1sujzzf1/MtTJqBjRNhYhQvcfH228KS5Za/5FyliHRqNpTALyLX5SX1aNap05QtcDxXF+dR/jv02YcPihDBGhHYk9VqH8rV/ffML396U1JbjSrg+upxxNEekkKhJ/5WnnJy+KxZX5ELZ9IlZ4Rx+lHr2VEsxOi8BweHPp1QOZNhnnJ/S7Bl0VSKm0TE9dBErqGmnXvSn/X1vldSthVZVXF1I+ngaP8RYvrpwaV5eogObVhPO+HV7zRfxI5d8l152rTcj6PGB0x/FwLSiTn47zqDn0Zds/2PHSl4bmYXPJ3wCm762MoOwjjmJVwPNH8VcIZB4j/5MyYkICw7ISwuZBAqEaf3/RZ2qYzBtAHn4QqrSNfMgz1YdNQUzvyuOuzRVRPhqxu6Ka5X3uthDoXuNSDbMnVv9IMXDBEagFB+8eI5iaiTZrCf3FLGUo=
+  on:
+    tags: true
+    repo: TheConnMan/sails-persistence-logger
