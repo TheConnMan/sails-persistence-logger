@@ -6,7 +6,8 @@
   "types": "js/index.d.ts",
   "scripts": {
     "compile": "tsc -p tsconfig.json",
-    "test": "nyc mocha",
+    "test": "nyc mocha && npm run lint",
+    "lint": "tslint -p tslint.json",
     "prepublish": "tsc"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",
     "ts-node": "^3.0.4",
+    "tslint": "^5.8.0",
     "typescript": "^2.3.4"
   },
   "nyc": {
