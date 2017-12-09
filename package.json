@@ -29,14 +29,15 @@
   "homepage": "https://github.com/theconnman/sails-persistence-logger#readme",
   "dependencies": {
     "extend": "^3.0.1",
-    "log4js": "^1.1.1"
+    "log4js": "^1.1.1",
+    "source-map-support": "^0.5.0"
   },
   "devDependencies": {
     "@types/extend": "^2.0.30",
     "@types/log4js": "0.0.32",
     "@types/mocha": "^2.2.41",
     "mocha": "^3.4.2",
-    "nyc": "^11.0.2",
+    "nyc": "^11.4.0",
     "ts-node": "^3.0.4",
     "tslint": "^5.8.0",
     "typescript": "^2.3.4"
